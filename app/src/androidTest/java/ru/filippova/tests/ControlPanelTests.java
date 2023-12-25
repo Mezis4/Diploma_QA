@@ -12,6 +12,8 @@ import static org.junit.Assert.assertNotEquals;
 
 import static ru.filippova.helpers.Helpers.withIndex;
 
+import android.os.SystemClock;
+
 import androidx.test.espresso.Espresso;
 import androidx.test.espresso.contrib.RecyclerViewActions;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
@@ -196,6 +198,7 @@ public class ControlPanelTests {
         /** Подтверждение выхода из редактирования новости */
         NewsCreateSteps.clickConfirmationForCancelButton();
         ControlPanelSteps.waitForLoadControlPanel();
+        ControlPanelSteps.isControlPanel();
         String newsTitleAfterCancelEdit = ControlPanelSteps.getFirstNewsTitle();
         assertEquals(firstNewsTitle, newsTitleAfterCancelEdit);
     }

@@ -41,12 +41,14 @@ public class ClaimPanelTests {
         /** проверка элементов экран "панель заявок" */
         NavigationBarSteps.navigationBarElementsCheck();
         ClaimPanelSteps.claimPanelElementsCheck();
+        ClaimPanelSteps.claimCreateScreenLoad();
         MainScreenSteps.claimCardCheck();
 
         /** Переход на экран создания заявки и возврат */
         ClaimPanelSteps.goToClaimCreate();
         ClaimCreateSteps.isClaimCreate();
         Espresso.pressBackUnconditionally();
+        ClaimPanelSteps.claimCreateScreenLoad();
         ClaimPanelSteps.isClaimPanel();
 
         /** Открытие фильтров заявок и закрытие через системную кнопку "Назад"
@@ -54,12 +56,14 @@ public class ClaimPanelTests {
         ClaimPanelSteps.openFilters();
         ClaimPanelSteps.filtersElementsCheck();
         Espresso.pressBackUnconditionally();
+        ClaimPanelSteps.claimCreateScreenLoad();
         ClaimPanelSteps.isClaimPanel();
 
         /** переход на карточку заявки и возврат */
         ClaimPanelSteps.openClaimCard();
         ClaimCardSteps.isClaimCard();
         Espresso.pressBackUnconditionally();
+        ClaimPanelSteps.claimCreateScreenLoad();
         ClaimPanelSteps.isClaimPanel();
     }
 
@@ -110,4 +114,9 @@ public class ClaimPanelTests {
         ClaimCardSteps.checkClaimStatus("Отменена");
     }
 
+    @Test
+    public void w_logOutAfterTests() {
+        MainScreenSteps.mainScreenLoad();
+        MainScreenSteps.logOut();
+    }
 }

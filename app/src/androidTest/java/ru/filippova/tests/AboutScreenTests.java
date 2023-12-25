@@ -38,6 +38,4 @@ public class AboutScreenTests {
         AboutScreenSteps.clickBackButton();
         AboutScreenSteps.notAboutScreen();
     }
-
-
 }
